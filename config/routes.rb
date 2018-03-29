@@ -4,8 +4,6 @@ Mixtapes::Application.routes.draw do
 
   get '/home' => 'application#home'
 
-  get '/voting' => 'application#voting'
-
   get '/auth/:provider/callback' => 'sessions#create'
   get '/signout' => 'sessions#destroy', :as => :signout
 
@@ -16,6 +14,7 @@ Mixtapes::Application.routes.draw do
   resources :users, :only => [:new, :create]
 
   resource :guesses, :only => [:show, :update]
+  resource :votes, :only => [:show, :update]
 
   resources :mixtapes, :except => :edit do
     resources :songs, :only => [:create, :update, :destroy] do

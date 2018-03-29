@@ -28,6 +28,7 @@
           <%= navbar_link_to 'Stand-out songs', songs_path %>
           <% if current_user %>
             <%= navbar_link_to 'My guesses', guesses_path %>
+            <%= navbar_link_to 'My votes', votes_path %>
           <% end %>
         <% end %>
       </ul>
@@ -48,8 +49,8 @@
     </div>
   </nav>
 
-  <% if voting_warning && !current_page?(voting_path) %>
-    <%= link_to voting_path, :class => 'full-flash' do %>
+  <% if voting_warning && !current_page?(votes_path) %>
+    <%= link_to votes_path, :class => 'full-flash' do %>
       <%= pluralize voting_warning, 'day' %> left to vote. Click to learn more.
     <% end %>
   <% end %>
